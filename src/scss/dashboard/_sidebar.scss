@@ -1,0 +1,85 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.sidebar{
+
+    display: none;  //me oculta el sidebar lateral en dipositivo movil
+    @include m.tablet{  //cuando es igual o superior a tablet muesta el sidebar lateral
+        display: block;
+    }
+    background-color: v.$indigo;
+    padding: 2rem;
+    &.mostrar{   //clase hecha en app.js
+        display: block;
+    }
+    h2{
+        color: v.$blanco;
+        margin: 0;
+        text-align: center;
+    }
+    img{  //svg cerrar 'x'
+        width: 0.8rem;
+    }
+    .sidebar-nav{
+        margin-top: 5rem;
+        a{              //el tamaño de las letras de los links a esta definido en globales.scss de 1.6rem
+            color: v.$blanco;
+            display: block;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            transition-property: background-color;
+            transition-duration: 300ms;
+            font-size: 2rem;
+            text-align: center;
+            &:hover, &.activo{
+                background-color: darken(v.$indigo, 20%);
+                border-radius: 0.5rem;
+            }
+            @include m.tablet{
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+        }
+    }
+
+    .uptask{  //clase del h1 y de la x cerraren dispositivo movil
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .menux{
+            img{ 
+                width: 1.8rem;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            @include m.tablet{
+                display: none;
+            }
+        }
+    }
+
+
+    .cerrar-sesion-mobile{  //clase al boton cerrar sesion que esta en el sidebar barra lateral
+        margin-top: 10rem;
+        .cerrar-sesion{
+            @include m.boton(v.$indigo, v.$blanco);
+        }
+        @include m.tablet{
+           display: none;
+        }
+        p{
+            text-align: center;
+            margin: 0;
+            font-size: 1.4rem;
+            color: v.$cyan;
+            span{
+                color: v.$blanco;
+                font-weight: 700;
+            }
+        }
+    }//cierre del .cerrar-sesion-mobile
+
+}//cierre del .sidebar

@@ -1,0 +1,40 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.formulario{
+    margin-top: 5rem;
+    width: 100%;
+    input[type="submit"]{
+        @include m.boton(v.$cyan, v.$blanco);
+    }
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: center;  //centrado verticalmente del label y el input
+   // justify-content: center;  //cetra horizontalmente el label y el input, en medio de la pantalla
+    label{
+        flex: 0 0 10rem;
+    }
+    input{
+        flex: 1;
+        border: none;
+        padding: 1rem;
+        //outline: none;
+        background-color: lighten(v.$gris, 40%);
+        /*
+        &:read-only{
+            outline: none;
+            background-color: lighten(rgb(33, 158, 196), 30%);
+            border: none;
+            cursor: not-allowed;
+        }
+        &:focus{
+            border: solid 1px lighten(rgb(33, 158, 196), 30%);
+           // border-color: #2f8fdd;
+        }*/
+        
+    }
+    
+}

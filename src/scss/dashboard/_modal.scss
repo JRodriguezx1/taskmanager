@@ -1,0 +1,60 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.modal{  //clase creada en tareas.js
+
+    position: absolute;
+    background-color: rgba(#000, 80%);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    .formulario{
+        border-radius: 1rem;
+        background-color: v.$blanco;
+        max-width: 60rem;
+        padding: 2rem;
+        margin: 0 auto;  //centra horizontalmente
+        transform: translateY(-40rem);
+        transition-property: all;
+        transition-duration: 600ms;
+        transition-timing-function: ease-in;
+        opacity: 0;
+
+        legend{     //creado en js
+            font-size: 2rem;
+            text-align: center;
+            display: block;  //para que se centre el texto
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .submit-nueva-tarea{  //creado en js
+            @include m.boton(v.$indigo, v.$blanco);
+
+        }
+        .cerrar-modal{   //creado en js
+            @include m.boton(v.$naranja, v.$blanco);
+        } 
+        input[tipe="text"]{
+            border: 1px solid v.$gris;
+        }  
+        .opciones{    //creado en js
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        &.animar{  //cuando la clase animar este presente centra el formulario, clase animar se ejecuta en tarea.js
+        position: relative;  //posiciona el formulario con repecto al div class modal, posiciona elformulario en laizquina superior izq
+        top: 50%;  //mueve el formulario un 50% hacia abajo
+        transform: translateY(-50%); //traslada el formulario 50% hacia arriba pero el contenido interno del formulario.
+        opacity: 1;
+        }
+        &.cerrar{  //creado en js
+        transform: translateY(-200%); //traslada el formulario 50% hacia arriba pero el contenido interno del formulario.
+        opacity: 0;
+        }
+    }
+}

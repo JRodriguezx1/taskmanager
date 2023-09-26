@@ -1,0 +1,16 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.mensaje{
+    margin-top: 5rem;
+    h1{
+        background: linear-gradient(to right, v.$naranja 0%, lighten(v.$naranja, 30%) 100%);
+        color: transparent;
+        background-clip: text;
+        font-size: 7rem;
+        text-align: center;
+        @include m.tablet{
+            font-size: 10rem;
+        }
+    }
+}

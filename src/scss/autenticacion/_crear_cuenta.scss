@@ -1,0 +1,25 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.crear{
+    margin-top: 5rem;
+    h1{
+        background: linear-gradient(to right, v.$morado 0%, lighten(v.$morado, 30%) 100%);
+        color: transparent;
+        background-clip: text;
+        font-size: 7rem;
+        text-align: center;
+        @include m.tablet{
+            font-size: 10rem;
+        }
+    }
+
+    input[type="submit"]{
+        @include m.boton(v.$morado, v.$blanco);
+    }
+    .acciones{
+        a{
+            color: v.$morado;
+        }
+    }
+}

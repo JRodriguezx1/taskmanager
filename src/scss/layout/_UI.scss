@@ -1,0 +1,48 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.contenedor-estetica{ //div principal el que abarca todo
+
+    @include m.tablet { //apartir de 768px se muestra en columnas 
+        height: 100vh; // muestra la imagen a pantalla completa
+        @include m.grid(2, 1rem);  //separa el div .imagen y el div .app en 2 columnas
+                      }
+
+    .imagen{
+        background-image: url(../img/1.jpg);
+        background-size: cover;
+        background-position: center center;
+        height: 30rem;  //si es < a 768px al div imagen le da altura de 300px
+        @include m.tablet { height: auto; }  //cuando la pantalla supere los 768px al div imagen le da altura de toda la pantalla
+
+    }  
+    
+    
+    .app {
+        margin: 0 auto;  //centra el contenido
+        width: 100%;   //95%
+        padding: 2rem 1rem;   //2rem 0
+        @include m.tablet{
+           
+            overflow-y: scroll;
+        }
+
+        
+    .app::-webkit-scrollbar{  /* scroll para chrome, safary y opera*/
+           display: none;
+    }
+    .app{   /* scroll para firefox y explorer */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+        /*
+          .seccion{
+           display: none; //toma las div de class seccion y los oculta
+           margin-top: $separacion/2;
+          // &:first-of-type {display: block;}  //toma el primer div de class seccion lo muestra
+                  }*/
+           }  
+
+                      
+}

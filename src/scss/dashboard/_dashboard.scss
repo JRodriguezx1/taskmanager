@@ -1,0 +1,44 @@
+@use 'base/variables' as v; //   carpeta/nom_archivo
+@use 'base/mixins' as m;
+
+.dashboard{ //clase esta en header_dashboard.php
+    background-color: v.$grisclaro;
+    @include m.tablet{
+        display: flex;
+        height: 100vh;
+    }
+    .principal{ //clase esta en header_dashboard.php
+        flex: 1;
+        overflow: scroll;
+    }
+    .contenido{  //clase esta en header_dashboard.php
+        padding: 1rem;
+        .nombre-pagina{
+            text-align: center;
+            font-size: 2.8rem;
+        }
+    }
+
+    .formulario{
+
+        input:not([type="submit"]){
+            background-color: v.$blanco;
+        }
+        input[type="submit"]{
+            @include m.boton(v.$indigo, v.$blanco);
+            text-transform: uppercase;
+            padding: 1rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+    }
+
+    .enlace{
+        color: v.$indigo;
+        &:hover{
+            cursor: pointer;
+            color: darken(v.$indigo, 20%);
+        }
+
+    }
+}
