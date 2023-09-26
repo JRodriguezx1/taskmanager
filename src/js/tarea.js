@@ -220,7 +220,7 @@
 
         
 
-        const url = "http://uptask_mvc.test/api/tarea";
+        const url = "/api/tarea";
         try {
             const respuesta = await fetch(url, {method: 'POST', body: datos}); //conecta y consulta a la api y envia datos por metodo post y en tarea_controlador.php se recibe en $_POST
             const resultado = await respuesta.json();
@@ -314,7 +314,7 @@
             console.log(valor);  //iterar formdate
         }*/
 
-        const url = "http://uptask_mvc.test/api/tarea/actualizar";
+        const url = "/api/tarea/actualizar";
         try {
             const respuesta = await fetch(url, {method: 'POST', body: datos}); //conecta y consulta a la api y envia datos por metodo post y en tarea_controlador.php se recibe en $_POST
             const resultado = await respuesta.json();
@@ -361,7 +361,7 @@
             console.log(valor);  //iterar formdate
         }*/
 
-        const url = "http://uptask_mvc.test/api/tarea/actualizar";
+        const url = "/api/tarea/actualizar";
         try {
             const respuesta = await fetch(url, {method: 'POST', body: datos}); //conecta y consulta a la api y envia datos por metodo post y en tarea_controlador.php se recibe en $_POST
             const resultado = await respuesta.json();
@@ -427,7 +427,7 @@
         datos.append('idproyectos', idproyectos);
         datos.append('url', url_id);
 
-        const url = "http://uptask_mvc.test/api/tarea/eliminar";
+        const url = "/api/tarea/eliminar";
 
         try {
             const respuesta = await fetch(url, {method: 'POST', body: datos}); //conecta y consulta a la api y envia datos por metodo post y en tarea_controlador.php se recibe en $_POST  

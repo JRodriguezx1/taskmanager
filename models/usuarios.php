@@ -119,6 +119,7 @@
 
          if(!$resultado || !$this->confirmado){  //si $resultado o this->confirmado es cero '0' es por pass incorrecto o no esta confirmado.
              self::$alertas['error'][] = "Password incorrecto o tu cuenta no ha sido confirmada"; 
+             return false;
          }
          else{
              return true;   //passwor correcto y confirmado
